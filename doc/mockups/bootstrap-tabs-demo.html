@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Basic Bootstrap Template</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<!-- Optional Bootstrap theme -->
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+		<!-- Script for Dynamic Tabs via Javascript -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){ 
+			    $("#myTabs a").click(function(e){
+			    	e.preventDefault();
+			    	$(this).tab('show');
+			    });
+			});
+		</script>
+
+	</head>
+
+	<body>
+		<div class="container">
+
+		    <h1>Tabs</h1>
+
+		    <hr>
+
+		    <h2>Tabs <small>unclickable</small></h2>
+		    <ul class="nav nav-tabs">
+		        <li class="active"><a href="#">Dog</a></li>
+		        <li><a href="#">Cat</a></li>
+		        <li><a href="#">Mouse</a></li>
+		    </ul>
+
+
+		    <h2>Dynamic Tabs <small>via Data Attributes</small></h2>
+		    <ul class="nav nav-tabs">
+		        <li class="active"><a data-toggle="tab" href="#sectionA">Apple</a></li>
+		        <li><a data-toggle="tab" href="#sectionB">Banana</a></li>
+		        <li class="dropdown">
+		            <a data-toggle="dropdown" class="dropdown-toggle" href="#">More Fruits <b class="caret"></b></a>
+		            <ul class="dropdown-menu">
+		                <li><a data-toggle="tab" href="#dropdown1">Cherry</a></li>
+		                <li><a data-toggle="tab" href="#dropdown2">Kiwi</a></li>
+		            </ul>
+		        </li>
+		    </ul>
+		    <div class="tab-content">
+		        <div id="sectionA" class="tab-pane fade in active">
+		            <p>Apple section</p>
+		        </div>
+		        <div id="sectionB" class="tab-pane fade">
+		            <p>Banana section</p>
+		        </div>
+		        <div id="dropdown1" class="tab-pane fade">
+		            <p>Cherry section</p>
+		        </div>
+		        <div id="dropdown2" class="tab-pane fade">
+		            <p>Kiwi section</p>
+		        </div>
+		    </div>
+
+		    <h2>Dynamic Tabs <small>via Javascript</small></h2>
+		    <ul class="nav nav-tabs" id="myTabs">
+		        <li class="active"><a href="#apple">Apple</a></li>
+		        <li><a href="#banana">Banana</a></li>
+		        <li class="dropdown">
+		            <a data-toggle="dropdown" class="dropdown-toggle" href="#">Vegetables <b class="caret"></b></a>
+		            <ul class="dropdown-menu">
+		                <li><a href="#carrot">Carrot</a></li>
+		                <li><a href="#potato">Potato</a></li>
+		            </ul>
+		        </li>
+		    </ul>
+		    <div class="tab-content">
+		        <div id="apple" class="tab-pane fade in active">
+		            <h3>Apple</h3>
+		            <p>The round fruit of a tree of the rose family, which typically has thin red or green skin and crisp flesh. Many varieties have been developed as dessert or cooking fruit or for making cider.</p>
+		        </div>
+		        <div id="banana" class="tab-pane fade">
+		            <h3>Banana</h3>
+		            <p>A long curved fruit that grows in clusters and has soft pulpy flesh and yellow skin when ripe.</p>
+		        </div>
+		        <div id="carrot" class="tab-pane fade">
+		            <h3>Carrot</h3>
+		            <p>A tapering orange-colored root eaten as a vegetable.</p>
+		        </div>
+		        <div id="potato" class="tab-pane fade">
+		            <h3>Potato</h3>
+		            <p><ABBR></ABBR> starchy plant tuber that is one of the most important food crops, cooked and eaten as a vegetable.</p>
+		        </div>
+		    </div>
+
+		</div>
+	</body>
+</html>
+
