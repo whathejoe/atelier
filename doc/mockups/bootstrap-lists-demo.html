@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Basic Bootstrap Template</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<!-- Optional Bootstrap theme -->
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<!-- Own style -->
+		<style type="text/css">
+			.list-group {
+				width: 200px;
+			}
+			#lg-headings-paragraph {
+				width: 1000px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+		    <h1>Lists<small></small></h1>
+
+		    <hr>
+
+		    <h2>Unstyled List</h2>
+		    <ul class="list-unstyled">
+		      <li>Home</li>
+		      <li>Products
+		        <ul>
+		          <li>Gadgets</li>
+		          <li>Accessories</li>
+		        </ul>
+		      </li>
+		      <li>About Us</li>
+		      <li>Contact</li>
+		    </ul>
+
+		    <hr>
+
+		    <h2>Inline List</h2>
+		    <ul class="list-inline">
+		        <li>Earth</li>
+		        <li>Fire</li>
+		        <li>Water</li>
+		        <li>Thunder</li>
+		    </ul>
+
+		    <hr>
+
+		    <h2>Horizontal Definition List</h2>
+		    <dl class="dl-horizontal">
+		        <dt>Earth</dt>
+		        <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</dd>
+		        <dt>Fire</dt>
+		        <dd>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</dd>
+		        <dt>Water</dt>
+		        <dd>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</dd>
+		        <dt>Thunder</dt>
+		        <dd>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</dd>
+		    </dl>
+
+		    <hr>
+
+		    <h2>List Groups</h2>
+		    <ul class="list-group">
+		        <li class="list-group-item">Earth</li>
+		        <li class="list-group-item">Fire</li>
+		        <li class="list-group-item">Water</li>        
+		        <li class="list-group-item">Thunder</li>
+		    </ul>
+
+
+		    <h2>List Groups <small>with Headings and Paragraphs</small></h2>
+		    <div class="list-group" id="lg-headings-paragraph">
+		        <a href="#" class="list-group-item">
+		            <h4 class="list-group-item-heading">Earth</h4>
+		            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+		        </a>
+		        <a href="#" class="list-group-item active">
+		            <h4 class="list-group-item-heading">Fire</h4>
+		            <p class="list-group-item-text">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		        </a>
+		        <a href="#" class="list-group-item">
+		            <h4 class="list-group-item-heading">Water</h4>
+		            <p class="list-group-item-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		        </a>
+		        <a href="#" class="list-group-item">
+		            <h4 class="list-group-item-heading">Thunder</h4>
+		            <p class="list-group-item-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+		        </a>
+		    </div>
+
+
+
+		    <h2>List Groups <small> with Glyphicon, Badge and an Active State</small></h2>
+		    <ul class="list-group">
+		        <li class="list-group-item"><span class="glyphicon glyphicon-leaf"></span> Earth <span class="badge">6</span></li>
+		        <li class="list-group-item"><span class="glyphicon glyphicon-fire"></span> Fire <span class="badge">3</span></li>
+		        <li class="list-group-item"><span class="glyphicon glyphicon-tint"></span> Water <span class="badge">4</span></li>
+		        <li class="list-group-item active"><span class="glyphicon glyphicon-flash"></span> Thunder <span class="badge">1</span></li>
+		    </ul>
+
+		    <h2>List Groups <small> with Contextual States</small></h2>
+		    <ul class="list-group">
+		        <li class="list-group-item list-group-item-success"><span class="glyphicon glyphicon-leaf"></span> Earth <span class="badge">6</span></li>
+		        <li class="list-group-item list-group-item-danger"><span class="glyphicon glyphicon-fire"></span> Fire <span class="badge">3</span></li>
+		        <li class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-tint"></span> Water <span class="badge">4</span></li>
+		        <li class="list-group-item list-group-item-warning"><span class="glyphicon glyphicon-flash"></span> Thunder <span class="badge">1</span></li>
+		    </ul>
+
+		    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		    <script src="js/bootstrap.min.js"></script>
+		</div>
+	</body>
+
+</html>
+
