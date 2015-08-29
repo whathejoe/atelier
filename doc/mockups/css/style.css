@@ -1,0 +1,35 @@
+/* General */
+
+body {
+	margin-top: 51px;
+}
+
+h1 {
+	margin-top: 50px;
+}
+
+.footer-barrier {
+	margin-top: 70px;
+}
+
+/* Home */
+
+#myCarousel {
+	margin-top: 51px;
+}
+
+/* Contact Us */
+
+#messageForm {
+	margin-top: 50px;
+}
+
+/* Product */
+
+#productDetails {
+	margin-top: 26px;
+}
+
+.price {
+	color: green;
+}
