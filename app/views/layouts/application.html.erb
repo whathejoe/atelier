@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <title>Atelier</title>
@@ -11,4 +11,59 @@
 <%= yield %>
 
 </body>
+</html> -->
+
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Table Top</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Bootstrap -->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<!-- Optional Bootstrap theme -->
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<!-- Custom Stylesheet -->
+		<link rel="stylesheet" href="css/style.css">
+
+		<!-- Script for Dynamic Tabs via Javascript -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+
+	</head>
+
+	<body>
+		<nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+	            	<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+		                <span class="sr-only">Toggle navigation</span>
+		                <span class="icon-bar"></span>
+		                <span class="icon-bar"></span>
+		                <span class="icon-bar"></span>
+		            </button>
+		            <a href="#" class="navbar-brand">Table Top</a>
+	        	</div>
+	        	<div id="navbarCollapse" class="collapse navbar-collapse">
+		            <ul class="nav navbar-nav navbar-right">
+		                <li><a href="#">About</a></li>
+		                <li><a href="#">Store</a></li>
+		                <li><a href="#">Contact Us</a></li>
+		            </ul>
+		        </div>
+	        </div>
+		</nav>
+
+		<%= yield %>
+		
+		<!-- Footer -->
+		<hr class="footer-barrier">
+		<div class="container">
+			<footer>
+	        	<p>&copy; Company 2015</p>
+	      	</footer>
+		</div>
+	</body>
 </html>
+
