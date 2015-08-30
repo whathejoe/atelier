@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="form">
+
+  <h1>Sign up</h1>
+
+    <%= form_for(@user) do |user| %>
+    <%= user.email_field :email, placeholder: "Email" %>
+    <%= user.password_field :password, placeholder: "Password" %>
+    <%= user.submit "Sign Up", class: "btn btn-default" %>
+    <% end %>
+  </div>
+</div>

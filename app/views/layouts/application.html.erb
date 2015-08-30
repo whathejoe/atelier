@@ -1,31 +1,14 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <title>Atelier</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
-</html> -->
-
 <!DOCTYPE html>
-
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Table Top</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- Bootstrap -->
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-		<!-- Optional Bootstrap theme -->
-		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-		<!-- Custom Stylesheet -->
-		<link rel="stylesheet" href="css/style.css">
+	    <title>Atelier</title>
+	    <%= stylesheet_link_tag "bootstrap.min"%>
+	    <%= stylesheet_link_tag "bootstrap-theme.min"%>
+	    <%= stylesheet_link_tag "style"%>
+	    <%= javascript_include_tag "jquery-1.11.3" %>
+	    <%= javascript_include_tag "bootstrap.min" %>
+	    <%= csrf_meta_tags %>
 
 		<!-- Script for Dynamic Tabs via Javascript -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -56,7 +39,7 @@
 		</nav>
 
 		<%= yield %>
-		
+
 		<!-- Footer -->
 		<hr class="footer-barrier">
 		<div class="container">
