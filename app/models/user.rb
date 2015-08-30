@@ -7,7 +7,4 @@ class User < ActiveRecord::Base
 		field :password_confirmation
   	end
 
-  	def is_admin?
-  		self.is_admin == true
-  	end
 end
