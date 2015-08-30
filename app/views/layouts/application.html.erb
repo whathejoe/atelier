@@ -26,12 +26,12 @@
 		                <span class="icon-bar"></span>
 		                <span class="icon-bar"></span>
 		            </button>
-		            <a href="#" class="navbar-brand">Table Top</a>
+		            <%= link_to 'Table Top', root_path, class: 'navbar-brand' %>
 	        	</div>
 	        	<div id="navbarCollapse" class="collapse navbar-collapse">
 		            <ul class="nav navbar-nav navbar-right">
 		                <li><a href="#">About</a></li>
-		                <li><a href="#">Store</a></li>
+		                <li><%= link_to 'Store', store_path %></li>
 		                <li><a href="#">Contact Us</a></li>
 		            </ul>
 		        </div>

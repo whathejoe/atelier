@@ -1,19 +1,14 @@
 Rails.application.routes.draw do
-  get 'products/home'
-
-  get 'products/store'
-
+  
+  root 'products#home'
+  get 'store' => 'products#store'
   get 'products/product'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-
-  get 'signup'  => 'users#new' 
-  resources :users
-
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
-  delete '/logout' => 'sessions#destroy'
-  root 'products#home'
+  delete 'logout' => 'sessions#destroy'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
