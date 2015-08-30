@@ -66,86 +66,18 @@
 		</div>
 	    <div class="col-md-9">
 	    	<div class="row">
+
+	    		<% @products.each do |p| %>
 		    	<div class="col-md-3">
 		    		<div class="thumbnail">
-				      	<img class="img-responsive" src="http://lorempixel.com/360/400" alt="New Arrival 1">
+		    			<%= image_tag p.image.url(:medium), class: 'img-responsive', alt: "New Arrival 1" %>
 				      	<div class="caption">
-				       		<h4>Product<small> $99.99</small></h4>
+				       		<h4><%= p.name %><small> $ <%= p.price %></small></h4>
 				      	</div>
 				    </div>
 		    	</div>
-		    	<div class="col-md-3">
-		    		<div class="thumbnail">
-				      	<img class="img-responsive" src="http://lorempixel.com/360/400" alt="New Arrival 1">
-				      	<div class="caption">
-				       		<h4>Product<small> $99.99</small></h4>
-				      	</div>
-				    </div>
-		    	</div>
-		    	<div class="col-md-3">
-		    		<div class="thumbnail">
-				      	<img class="img-responsive" src="http://lorempixel.com/360/400" alt="New Arrival 1">
-				      	<div class="caption">
-				       		<h4>Product<small> $99.99</small></h4>
-				      	</div>
-				    </div>
-		    	</div>
-		    	<div class="col-md-3">
-		    		<div class="thumbnail">
-				      	<img class="img-responsive" src="http://lorempixel.com/360/400" alt="New Arrival 1">
-				      	<div class="caption">
-				       		<h4>Product<small> $99.99</small></h4>
-				      	</div>
-				    </div>
-		    	</div>
-		    	<div class="col-md-3">
-		    		<div class="thumbnail">
-				      	<img class="img-responsive" src="http://lorempixel.com/360/400" alt="New Arrival 1">
-				      	<div class="caption">
-				       		<h4>Product<small> $99.99</small></h4>
-				      	</div>
-				    </div>
-		    	</div>
-		    	<div class="col-md-3">
-	    		<div class="thumbnail">
-			      	<img class="img-responsive" src="http://lorempixel.com/360/400" alt="New Arrival 1">
-			      	<div class="caption">
-			       		<h4>Product<small> $99.99</small></h4>
-			      	</div>
-			    </div>
-		    	</div>
-		    	<div class="col-md-3">
-		    		<div class="thumbnail">
-				      	<img class="img-responsive" src="http://lorempixel.com/360/400" alt="New Arrival 1">
-				      	<div class="caption">
-				       		<h4>Product<small> $99.99</small></h4>
-				      	</div>
-				    </div>
-		    	</div>
-		    	<div class="col-md-3">
-		    		<div class="thumbnail">
-				      	<img class="img-responsive" src="http://lorempixel.com/360/400" alt="New Arrival 1">
-				      	<div class="caption">
-				       		<h4>Product<small> $99.99</small></h4>
-				      	</div>
-				    </div>
-		    	</div>
-		    	<div class="col-md-3">
-		    		<div class="thumbnail">
-				      	<img class="img-responsive" src="http://lorempixel.com/360/400" alt="New Arrival 1">
-				      	<div class="caption">
-				       		<h4>Product<small> $99.99</small></h4>
-				      	</div>
-				    </div>
-		    	</div>
-		    	<div class="col-md-3">
-		    		<div class="thumbnail">
-				      	<img class="img-responsive" src="http://lorempixel.com/360/400" alt="New Arrival 1">
-				      	<div class="caption">
-				       		<h4>Product<small> $99.99</small></h4>
-				      	</div>
-				    </div>
-		    	</div>
+		    	<% end %>
+
 	    	</div>
 	    </div>		
 	</div>

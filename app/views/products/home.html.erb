@@ -42,59 +42,31 @@
 
 	<h1>Bestsellers!</h1>
 	<div class="row">
+		<% @bestsellers.take(3).each do |b| %>
 		<div class="col-xs-12 col-sm-6 col-md-4">
 		    <div class="thumbnail">
-		      	<img class="img-responsive" src="http://lorempixel.com/360/400" alt="Bestseller 1">
+		      	<%= image_tag b.image.url(:medium), class: 'img-responsive' %>
 		      	<div class="caption">
-		       		<h2>Product<small> $99.99</small></h2>
+		       		<h3><%= b.name %> <small> $ <%= b.price %></small></h3>
 		      	</div>
 		    </div>
 		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4">
-		    <div class="thumbnail">
-		      	<img class="img-responsive" src="http://lorempixel.com/360/400" alt="Bestseller 2">
-		      	<div class="caption">
-		       		<h2>Product<small> $99.99</small></h2>
-		      	</div>
-		    </div>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4">
-		    <div class="thumbnail">
-		      	<img class="img-responsive" src="http://lorempixel.com/360/400" alt="Bestseller 3">
-		      	<div class="caption">
-		       		<h2>Product<small> $99.99</small></h2>
-		      	</div>
-		    </div>
-		</div>
+		<% end %>
 	</div>				
 	<a href="#" class="btn btn-default pull-right">See more</a>
 
 	<h1>New Arrivals!</h1>
 	<div class="row">
+		<% @new_arrivals.take(3).each do |n| %>
 		<div class="col-xs-12 col-sm-6 col-md-4">
 		    <div class="thumbnail">
-		      	<img class="img-responsive" src="http://lorempixel.com/360/400" alt="New Arrival 1">
+		      	<%= image_tag n.image.url(:medium), class: 'img-responsive' %>
 		      	<div class="caption">
-		       		<h2>Product<small> $99.99</small></h2>
+		       		<h3><%= n.name %> <small> $ <%= n.price %></small></h3>
 		      	</div>
 		    </div>
 		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4">
-		    <div class="thumbnail">
-		      	<img class="img-responsive" src="http://lorempixel.com/360/400" alt="New Arrival 1">
-		      	<div class="caption">
-		       		<h2>Product<small> $99.99</small></h2>
-		      	</div>
-		    </div>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4">
-		    <div class="thumbnail">
-		      	<img class="img-responsive" src="http://lorempixel.com/360/400" alt="New Arrival 1">
-		      	<div class="caption">
-		       		<h2>Product<small> $99.99</small></h2>
-		      	</div>
-		    </div>
-		</div>
-	</div>
+		<% end %>
+	</div>		
 	<a href="#" class="btn btn-default pull-right">See more</a>
 </div>
