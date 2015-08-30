@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   root 'products#home'
   get 'store' => 'products#store'
-  get 'products/product'
+  get 'store/:id' => 'products#product', as: :product
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'login' => 'sessions#new'

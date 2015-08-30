@@ -1,15 +1,15 @@
 <div class="container">	
-	<h1>Store - Product</h1>
+	<h1>Store</h1>
 	<hr>
-	<a href="#" class="all-products"><i class="glyphicon glyphicon-chevron-left"></i> All Products</a>
-
+	<%= link_to '< All Products', store_path %>
+	
 	<div id="productDetails" class="row">
-		<div class="col-md-6">
-			<img class="img-responsive" src="http://lorempixel.com/600/600">
+		<div class="col-md-5 col-md-offset-1">
+			<%= image_tag @product.image.url(:large), class: 'img-responsive pull-right' %>
 		</div>
-		<div class="col-md-6">
-			<h3>Product Name<br>
-			<span class="price"><em>$89.99</em></span></h3>
+		<div class="col-md-5">
+			<h3><%= @product.name %><br>
+			<span class="price"><em>$<%= @product.price %></em></span></h3>
 
 			<p>Quantity:</p>
 			<form>
@@ -19,8 +19,9 @@
 			<button class="btn btn-primary">Add to cart</button>
 			<hr>
 			
-			<p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean posuere, urna vitae tincidunt vehicula, elit odio dapibus neque, tristique ultrices nisl turpis sed elit. Nullam feugiat convallis condimentum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec imperdiet sapien mauris, ac ullamcorper tellus semper id. Phasellus facilisis fermentum lorem, et finibus metus pulvinar id. Maecenas lacinia aliquam egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec nec nibh et massa blandit porta.</p>
-			<p class="text-justify">Duis luctus venenatis tempus. Morbi accumsan ac orci sed vehicula. Vestibulum nisl diam, aliquam sed rutrum nec, vehicula a metus. Aliquam mollis posuere lorem ac molestie. Donec ac cursus ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis justo interdum, sodales purus vel, ultrices justo. Curabitur egestas, nisl eu vulputate ultricies, nisl ante imperdiet velit, non facilisis nisi ex non turpis. Aliquam enim est, semper ut pulvinar a, auctor ut justo. Mauris scelerisque sapien sed neque laoreet, vel vehicula nisi tempor. Sed blandit erat ligula, sed commodo felis fermentum eu. Vestibulum enim diam, rutrum id fermentum nec, eleifend ac est. Sed vitae nulla mollis mi porta iaculis.</p>
+			<p class="text-justify">
+				<%= @product.description %>
+			</p>
 		</div>
 	</div>
 	

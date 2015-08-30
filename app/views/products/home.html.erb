@@ -45,7 +45,7 @@
 		<% @bestsellers.take(3).each do |b| %>
 		<div class="col-xs-12 col-sm-6 col-md-4">
 		    <div class="thumbnail">
-		      	<%= image_tag b.image.url(:medium), class: 'img-responsive' %>
+		      	<%= link_to image_tag( b.image.url(:large), class: 'img-responsive' ), product_path(b) %>
 		      	<div class="caption">
 		       		<h3><%= b.name %> <small> $ <%= b.price %></small></h3>
 		      	</div>
@@ -61,14 +61,14 @@
 		<% @new_arrivals.take(3).each do |n| %>
 		<div class="col-xs-12 col-sm-6 col-md-4">
 		    <div class="thumbnail">
-		      	<%= image_tag n.image.url(:medium), class: 'img-responsive' %>
+		      	<%= link_to image_tag( n.image.url(:large), class: 'img-responsive' ), product_path(n) %>
 		      	<div class="caption">
 		       		<h3><%= n.name %> <small> $ <%= n.price %></small></h3>
 		      	</div>
 		    </div>
 		</div>
 		<% end %>
-		
+
 	</div>		
 	<a href="#" class="btn btn-default pull-right">See more</a>
 </div>
