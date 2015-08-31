@@ -20,17 +20,20 @@ class SessionsController < ApplicationController
 	def destroy 
 	  session[:user_id] = nil 
 	  redirect_to '/login' 
+
+	  reset_session
 	end
 
 	def add_to_cart
 		user_session.add_item(params[:id])
 
-		flash[:message] = "Added to cart successfully"
+		flash[:message] = "Added to cart successfully!"
 		redirect_to product_path(params[:id])
 	end
 
 	def checkout
-		@basket = user_session.show_items
+		
 	end
+
 
 end

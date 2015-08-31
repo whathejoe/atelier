@@ -5,8 +5,13 @@
 	
 	<div id="productDetails" class="row">
 
-		<p><%= flash[:message]%></p>
-		
+		<% if flash[:message] %>
+	    <div class="alert alert-success fade in">
+	        <a href="#" class="close" data-dismiss="alert">&times;</a>
+	        <span class="text-center"><%= flash[:message] %></span>
+	    </div>
+		<% end %>
+
 		<div class="col-sm-10 col-md-5 col-md-offset-1">
 			<%= image_tag @product.image.url(:large), class: 'img-responsive pull-right' %>
 		</div>
@@ -16,11 +21,11 @@
 			<span class="price"><em>$<%= @product.price %></em></span></h3>
 
 			<p>Quantity:</p>
-			<form>
-				<input type="number" value="1">
-			</form>
+			<%= form_for :user_session do |f| %>
+			<%= f.text_field :quantity %>
+			<% end %>
 			<br>
-			<%= link_to 'Add to cart', add_to_cart_path(@product), class: 'btn btn-primary' %>
+			<%= link_to 'Add to cart', add_to_cart_path( id: @product.id ), class: 'btn btn-primary' %>
 			<%= link_to 'Checkout', checkout_path, class: 'btn btn-warning' %>
 			<hr>
 			
