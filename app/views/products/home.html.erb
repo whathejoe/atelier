@@ -1,3 +1,4 @@
+<!-- Carousel  -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel"  data-interval="3000">
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
@@ -13,13 +14,6 @@
   			<img src="<%= asset_path( 'banner.jpg' ) %>" alt="First slide">
   		</div>
   	</div>
-  	<!-- Carousel nav -->
-    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <a class="carousel-control right" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-    </a>
 </div>
 
 <div class="container">	
@@ -37,7 +31,7 @@
 		</div>
 		<% end %>
 	</div>				
-	<a href="#" class="btn btn-default pull-right">See more</a>
+	<%= link_to 'See more', store_path, class: 'btn btn-default pull-right' %>
 
 	<h1>New Arrivals!</h1>
 	<div class="row">
@@ -54,5 +48,6 @@
 		<% end %>
 
 	</div>		
-	<a href="#" class="btn btn-default pull-right">See more</a>
+	<%= link_to 'See more', store_path, class: 'btn btn-default pull-right' %>
+	
 </div>
