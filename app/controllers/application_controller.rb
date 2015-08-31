@@ -9,9 +9,14 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user 
 
-
   def require_admin
     redirect_to '/login' unless current_user.is_admin?
   end
+
+  private
+  def user_session
+    @user_session ||= UserSession.new(session)
+  end
+  helper_method :user_session
 
 end
