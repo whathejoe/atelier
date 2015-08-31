@@ -100,8 +100,9 @@
             <div class="panel-body">
               <!-- Tabs -->           
               <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#ccMethod">Credit/Debit Card</a></li>
+                    <li class="active"><a data-toggle="tab" href="#ccMethod">Credit Card</a></li>
                     <li><a data-toggle="tab" href="#ppMethod">Paypal</a></li>
+                    <li><a data-toggle="tab" href="#gMethod">Google Pay</a></li>
               </ul>
               <!-- Tab Content -->
               <div class="tab-content">
@@ -169,6 +170,11 @@
                     <p>Paypal payment processing</p>
                 </div>
 
+                <!-- Google Pay -->
+                <div id="gMethod" class="tab-pane fade">
+                    <p>Google Pay payment processing</p>
+                </div>
+
               </div>
             </div>
           </div>
@@ -180,7 +186,51 @@
             <div class="panel-heading"><strong>3 ORDER REVIEW</strong></div>
             <div class="panel-body">
             <!-- TABLE HERE -->
-              
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Product Name</th>
+                  <th>Qty</th>
+                  <th>Subtotal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Munchkin</td>
+                  <td class="text-center">1</td>
+                  <td class="text-right">$ 29.99</td>
+                </tr>
+                <tr>
+                  <td>Mega Man: The Board Game</td>
+                  <td class="text-center">1</td>
+                  <td class="text-right">$ 149.99</td>
+                </tr>
+                <tr>
+                  <td>King of New York</td>
+                  <td class="text-center">1</td>
+                  <td class="text-right">$ 39.99</td>
+                </tr>
+                <tr>
+                  <td class="text-right" colspan="2">Subtotal</td>
+                  <td class="text-right">$ 219.97</td>
+                </tr>
+                <tr>
+                  <td class="text-right" colspan="2">Shipping Fee</td>
+                  <td class="text-right">$ 219.97</td>
+                </tr>
+                <tr>
+                  <td class="text-right" colspan="2"><strong>Grand Total</strong></td>
+                  <td class="text-right"><strong>$ 224.97</strong></td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <div class="checkbox">
+              <label>
+                <input type="checkbox">I read and agree to the <a href="#">Terms and conditions</a>.
+              </label>
+            </div>
+            <a href="#" class="btn btn-lg btn-warning">PLACE ORDER NOW</a>
             </div>
           </div>
         </div>

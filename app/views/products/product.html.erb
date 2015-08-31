@@ -4,11 +4,10 @@
 	<%= link_to '< All Products', store_path %>
 	
 	<div id="productDetails" class="row">
-
 		<% if flash[:message] %>
 	    <div class="alert alert-success fade in">
 	        <a href="#" class="close" data-dismiss="alert">&times;</a>
-	        <span class="text-center"><%= flash[:message] %></span>
+	        <%= flash[:message] %>
 	    </div>
 		<% end %>
 
