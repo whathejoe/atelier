@@ -4,9 +4,10 @@
 	<%= link_to '< All Products', store_path %>
 	
 	<div id="productDetails" class="row">
-		<div class="col-md-5 col-md-offset-1">
+		<div class="col-sm-10 col-md-5 col-md-offset-1">
 			<%= image_tag @product.image.url(:large), class: 'img-responsive pull-right' %>
 		</div>
+		<div class="clearfix visible-xs visible-sm hidden-md hidden-lg"></div>
 		<div class="col-md-5">
 			<h3><%= @product.name %><br>
 			<span class="price"><em>$<%= @product.price %></em></span></h3>
