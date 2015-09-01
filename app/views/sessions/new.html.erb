@@ -1,8 +1,25 @@
 <div class="container">
-	<h1>Log In</h1>
-	<%= form_for(:session, url: login_path) do |f| %> 
-	    <%= f.email_field :email, :placeholder => "Email" %> 
-	    <%= f.password_field :password, :placeholder => "Password" %> 
+	<h1>Admin Login</h1>
+	<hr>
+	<%= form_for(:session, url: login_path) do |f| %>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<%= label_tag 'session[email]', 'Email'%>
+					<%= f.email_field :email, placeholder: "Email", class: 'form-control' %><br> 
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<%= label_tag 'session[password]', 'Password'%>
+					<%= f.password_field :password, placeholder: "Password", class: 'form-control' %><br> 
+				</div>
+			</div>
+		</div>
+	    
+	    
 	    <%= f.submit "Log in", class: "btn btn-default" %>
 	<% end %>
 </div>

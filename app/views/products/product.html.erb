@@ -20,12 +20,18 @@
 			<span class="price"><em>$<%= @product.price %></em></span></h3>
 
 			<p>Quantity:</p>
-			<%= form_for :user_session do |f| %>
-			<%= f.text_field :quantity %>
+			<%= form_tag add_to_cart_path( id: @product.id, quantity: params[:qty] ), :method => "post" do %>
+			    <%= text_field_tag :qty, 1 %>
+			    <br>
+			    <br>
+			    <%= submit_tag 'Add to cart', class: 'btn btn-primary' %>
+				<%= link_to 'Checkout', checkout2_path, class: 'btn btn-warning' %>
 			<% end %>
-			<br>
-			<%= link_to 'Add to cart', add_to_cart_path( id: @product.id ), class: 'btn btn-primary' %>
-			<%= link_to 'Checkout', checkout_path, class: 'btn btn-warning' %>
+
+			
+			
+			
+
 			<hr>
 			
 			<p class="text-justify">
