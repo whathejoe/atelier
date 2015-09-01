@@ -18,7 +18,6 @@ class SessionsController < ApplicationController
 	end
 
 	def add_to_cart
-
 		if params[:qty] == "0" || params[:qty] == ""
 			params[:qty] = 1
 		end

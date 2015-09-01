@@ -13,10 +13,9 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  get 'add_to_cart/:id' => 'sessions#add_to_cart', as: :add_to_cartx
-  post 'add_to_cart/:id' => 'sessions#add_to_cart', as: :add_to_cart
+
   get 'checkout' => 'sessions#checkout'
-  post 'store/:id' => 'session#add_to_cart', as: :add_to_carto
+  post 'store/:id' => 'sessions#add_to_cart', as: :add_to_cart
   
   get 'checkout2' => 'sessions#checkout2'
 
