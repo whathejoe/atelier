@@ -16,6 +16,6 @@ class UserSession
 	def show_items
 		
 	end
-# http://rubyfiddle.com/riddles/2ebce/3
+
 end
 

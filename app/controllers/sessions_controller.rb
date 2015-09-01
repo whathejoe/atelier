@@ -25,16 +25,13 @@ class SessionsController < ApplicationController
 		user_session.add_item(params[:id], params[:qty])
 
 		flash[:message] = "Added to cart successfully!"
-		redirect_to product_path(id: params[:id], quantity: params[:qty])
+		redirect_to product_path(id: params[:id])
 	end
 
 	def checkout
 		
 	end
 
-	#
-	# 		remove
-	#
 	def checkout2
 		
 	end
