@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'activemerchant'
 gem "paperclip", "~> 4.3"
 gem 'rails_admin'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

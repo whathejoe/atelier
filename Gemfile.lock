@@ -23,6 +23,11 @@ GEM
     activejob (4.2.3)
       activesupport (= 4.2.3)
       globalid (>= 0.3.0)
+    activemerchant (1.53.0)
+      activesupport (>= 3.2.14, < 5.0.0)
+      builder (>= 2.1.2, < 4.0.0)
+      i18n (>= 0.6.9)
+      nokogiri (~> 1.4)
     activemodel (4.2.3)
       activesupport (= 4.2.3)
       builder (~> 3.1)
@@ -180,6 +185,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activemerchant
   bcrypt (~> 3.1.7)
   byebug
   coffee-rails (~> 4.1.0)
