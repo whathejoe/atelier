@@ -2,57 +2,137 @@
 <div id="checkOut" class="container">
 	<h1>My Cart</h1>
 	<hr>
-	
-	
-	<div class="col-md-8">
-		<div class="panel panel-default">
-        	<div class="panel-heading"><strong>ITEMS</strong></div>
-            <div class="panel-body">
-			    
 
-			    <table class="table">
-			        <thead>
-			            <tr>
-			                <th></th>
-			                <th>Product</th>
-			                <th class="text-center">Qty</th>
-			                <th class="text-right">Subtotal</th>
-			            </tr>
-			        </thead>
-			        <tbody>			        	
-			        	<% @items.each do |k, v| %>
-			            <tr>
-			                <td class="text-center"><%= image_tag @products.find_by_id(k).image.url(:thumb) %></td>
-			                <td>
-			                	<%= @products.find_by_id(k).name %>
-			                </td>
-			                <td class="text-center">
-			                	<%= v["quantity"] %>
-			                </td>
-			                <td class="text-right">
-			                	$ <%= @products.find_by_id(k).price * v["quantity"].to_f %>
-			                </td>
-			            </tr>
-			            <% end %>
-			            <tr>
-			            	<td colspan="3" class="text-right">Subtotal</td>
-			            	<td class="text-right"> $ <%= @subtotal %></td>
-			            </tr>
-			            <tr>
-			            	<td colspan="3" class="text-right">Shipping Fee</td>
-			            	<td class="text-right"> $ <%= @shipping_fee %></td>
-			            </tr>
-			            <tr>
-			            	<td colspan="3" class="text-right"><strong>Grand Total</strong></td>
-			            	<td class="text-right"><strong>$ <%= @grand_total %></strong></td>
-			            </tr>
-			        </tbody>
-			    </table>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="panel panel-default">
+	        	<div class="panel-heading"><strong>ITEMS</strong></div>
+	            <div class="panel-body">
+				    <table class="table">
+				        <thead>
+				            <tr>
+				                <th></th>
+				                <th>Product</th>
+				                <th class="text-center">Qty</th>
+				                <th class="text-right">Subtotal</th>
+				            </tr>
+				        </thead>
+				        <tbody>			        	
+				        	<% @items.each do |k, v| %>
+				            <tr>
+				                <td class="text-center"><%= image_tag @products.find_by_id(k).image.url(:thumb) %></td>
+				                <td>
+				                	<%= @products.find_by_id(k).name %>
+				                </td>
+				                <td class="text-center">
+				                	<%= v["quantity"] %>
+				                </td>
+				                <td class="text-right">
+				                	$ <%= @products.find_by_id(k).price * v["quantity"].to_f %>
+				                </td>
+				            </tr>
+				            <% end %>
+				            <tr>
+				            	<td colspan="3" class="text-right">Subtotal</td>
+				            	<td class="text-right"> $ <%= @subtotal %></td>
+				            </tr>
+				            <tr>
+				            	<td colspan="3" class="text-right">Shipping Fee</td>
+				            	<td class="text-right"> $ <%= @shipping_fee %></td>
+				            </tr>
+				            <tr>
+				            	<td colspan="3" class="text-right"><strong>Grand Total</strong></td>
+				            	<td class="text-right"><strong>$ <%= @grand_total %></strong></td>
+				            </tr>
+				        </tbody>
+				    </table>
+	            </div>
+	        </div>
+	    </div>
 
+	    <div class="col-md-4">
+	    	<div class="panel panel-default">
+	    		<div class="panel-heading"><strong>BILLING</strong></div>
+	    		<div class="panel-body">
+	    			<hr>
+	    			<div class="row">
+	    				<div class="col-md-8">
+	    					<strong>Grand Total</strong>
+	    				</div>
+	    				<div class="col-md-4">
+	    					<strong>$ <%= @grand_total %></strong>
+	    				</div>
+	    			</div>
+	    			<hr>
+	    			<form>
+		                <div class="row">
+		                  	<div class="col-md-6">
+		                  	  	<div class="form-group">
+		                  	  	    <label for="firstName">First Name</label>
+		                  	  	    <input type="text" class="form-control" id="firstName" placeholder="First Name">
+		                  	  	</div>
+		                  	</div>
+		                  	<div class="col-md-6">
+		                  	  	<div class="form-group">
+		                  	  	    <label for="lastName">Last Name</label>
+		                  	  	    <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+		                  	  	</div>
+		                  	</div>
+		                </div>
+		                <div class="row">
+		                  	<div class="col-md-6">
+		                  	    <div class="form-group">
+		                  	    	<label for="email">Email</label>
+		                  	    	<input type="email" class="form-control" id="email" placeholder="Email">
+		                  	    </div>
+		                  	</div>
+		                  	<div class="col-md-6">
+		                  	    <div class="form-group">
+		                  	    	<label for="telephone">Telephone</label>
+		                  	    	<input type="tel" class="form-control" id="telephone" placeHolder="Phone Number">
+		                  	    </div>
+		                  	</div>
+		                </div>
+		                <div class="form-group">
+		                  	<label for="address">Address</label>
+		                  	<textarea class="form-control" rows="3" id="address"></textarea>
+		                </div>
 
-            </div>
-        </div>
-    </div>
-
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label for="postalCode">Zip/Postal Code</label>
+		                            <input type="text" class="form-control" id="postalCode" placeholder="ex. 11342">
+		                        </div>
+		                    </div>
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label for="stateProvince">State/Province</label>
+		                            <input type="text" class="form-control" id="stateProvince" placeholder="State/Province">
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label for="company">Company</label>
+		                            <input type="text" class="form-control" id="company" placeholder="Company">
+		                        </div>
+		                    </div>
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                        	<label for="fax">Fax</label>
+		                        	<input type="text" class="form-control" id="fax" placeHolder="Fax">
+		                        </div>
+		                    </div>
+		                </div>
+	                </form>
+	                <br>
+	    			<%= link_to 'CHECKOUT', '#', class: 'btn btn-warning btn-lg btn-block' %>
+	    			<%= link_to 'Continue shopping', store_path, class: 'btn btn-primary btn-lg btn-block' %>
+	    		</div>
+	    	</div>
+	    </div>
+	</div>
       
 </div>
