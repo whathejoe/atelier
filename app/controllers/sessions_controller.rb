@@ -36,8 +36,19 @@ class SessionsController < ApplicationController
 		
 	end
 
+	def cart
+		@items = session["cart"]["products"]
+		@products = Product.all
 
+		@subtotal = 0
+		@items.each do |id, hash|
+			@subtotal += @products.find_by_id(id).price * hash["quantity"].to_f
+		end
 
+		@shipping_fee = 6.99
 
+		@grand_total = @subtotal + @shipping_fee # + some value ex. Shipping cost
+
+	end
 
 end

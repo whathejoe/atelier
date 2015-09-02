@@ -1,0 +1,58 @@
+
+<div id="checkOut" class="container">
+	<h1>My Cart</h1>
+	<hr>
+	
+	
+	<div class="col-md-8">
+		<div class="panel panel-default">
+        	<div class="panel-heading"><strong>ITEMS</strong></div>
+            <div class="panel-body">
+			    
+
+			    <table class="table">
+			        <thead>
+			            <tr>
+			                <th></th>
+			                <th>Product</th>
+			                <th class="text-center">Qty</th>
+			                <th class="text-right">Subtotal</th>
+			            </tr>
+			        </thead>
+			        <tbody>			        	
+			        	<% @items.each do |k, v| %>
+			            <tr>
+			                <td class="text-center"><%= image_tag @products.find_by_id(k).image.url(:thumb) %></td>
+			                <td>
+			                	<%= @products.find_by_id(k).name %>
+			                </td>
+			                <td class="text-center">
+			                	<%= v["quantity"] %>
+			                </td>
+			                <td class="text-right">
+			                	$ <%= @products.find_by_id(k).price * v["quantity"].to_f %>
+			                </td>
+			            </tr>
+			            <% end %>
+			            <tr>
+			            	<td colspan="3" class="text-right">Subtotal</td>
+			            	<td class="text-right"> $ <%= @subtotal %></td>
+			            </tr>
+			            <tr>
+			            	<td colspan="3" class="text-right">Shipping Fee</td>
+			            	<td class="text-right"> $ <%= @shipping_fee %></td>
+			            </tr>
+			            <tr>
+			            	<td colspan="3" class="text-right"><strong>Grand Total</strong></td>
+			            	<td class="text-right"><strong>$ <%= @grand_total %></strong></td>
+			            </tr>
+			        </tbody>
+			    </table>
+
+
+            </div>
+        </div>
+    </div>
+
+      
+</div>
