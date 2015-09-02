@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   
+  get 'transactions/index'
+
+  get 'transactions/new'
+
+  get 'transactions/create'
+
+  get 'transactions/success'
+
   root 'products#home'
 
   get 'about' => 'static_pages#about'
@@ -9,8 +17,7 @@ Rails.application.routes.draw do
   get 'store/:id' => 'products#product', as: :product
   
   post 'store/:id' => 'sessions#add_to_cart', as: :add_to_cart
-  get 'checkout' => 'sessions#checkout'
-  get 'checkout2' => 'sessions#checkout2'
+  get 'cart' => 'sessions#cart'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'login' => 'sessions#new'
@@ -18,7 +25,10 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   
   #temporary
-  get 'cart' => 'sessions#cart'
+  get 'checkout' => 'sessions#checkout'
+  get 'checkout2' => 'sessions#checkout2'
+
+  post 'payment' => 'transactions#new'
 
 
 

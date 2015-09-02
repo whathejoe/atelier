@@ -64,72 +64,60 @@
 	    				</div>
 	    			</div>
 	    			<hr>
-	    			<form>
+
+	    			<%= form_tag payment_path(), method: 'post' do %>
 		                <div class="row">
 		                  	<div class="col-md-6">
 		                  	  	<div class="form-group">
-		                  	  	    <label for="firstName">First Name</label>
-		                  	  	    <input type="text" class="form-control" id="firstName" placeholder="First Name">
+		                  	  		<%= label_tag :first_name, "First Name" %>
+  									<%= text_field_tag :first_name, '', class: 'form-control', placeholder: 'First Name', required: true %>
 		                  	  	</div>
 		                  	</div>
 		                  	<div class="col-md-6">
-		                  	  	<div class="form-group">
-		                  	  	    <label for="lastName">Last Name</label>
-		                  	  	    <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+		                  		<div class="form-group">
+		                  	  		<%= label_tag :last_name, "Last Name" %>
+  									<%= text_field_tag :last_name, '', class: 'form-control', placeholder: 'Last Name', required: true  %>
 		                  	  	</div>
 		                  	</div>
 		                </div>
 		                <div class="row">
 		                  	<div class="col-md-6">
 		                  	    <div class="form-group">
-		                  	    	<label for="email">Email</label>
-		                  	    	<input type="email" class="form-control" id="email" placeholder="Email">
+		                  	  		<%= label_tag :email, "Email" %>
+  									<%= email_field :email, '', class: 'form-control', placeholder: 'Email', required: true  %>
 		                  	    </div>
 		                  	</div>
 		                  	<div class="col-md-6">
 		                  	    <div class="form-group">
-		                  	    	<label for="telephone">Telephone</label>
-		                  	    	<input type="tel" class="form-control" id="telephone" placeHolder="Phone Number">
-		                  	    </div>
+		                  	  		<%= label_tag :telephone, "Telephone" %>
+  									<%= telephone_field :telephone, '', class: 'form-control', placeholder: 'Telephone', required: true  %>
+		                  	  	</div>
 		                  	</div>
 		                </div>
 		                <div class="form-group">
-		                  	<label for="address">Address</label>
-		                  	<textarea class="form-control" rows="3" id="address"></textarea>
+		                	<%= label_tag :address, "Address" %>
+  							<%= text_area_tag :address, '', class: 'form-control', rows: '3', required: true  %>
 		                </div>
 
 		                <div class="row">
 		                    <div class="col-md-6">
 		                        <div class="form-group">
-		                            <label for="postalCode">Zip/Postal Code</label>
-		                            <input type="text" class="form-control" id="postalCode" placeholder="ex. 11342">
+		                        	<%= label_tag :postal_code, "Zip / Postal Code" %>
+  									<%= text_field_tag :postal_code, '', class: 'form-control', placeholder: 'ex. 1101', required: true  %>
 		                        </div>
 		                    </div>
 		                    <div class="col-md-6">
 		                        <div class="form-group">
-		                            <label for="stateProvince">State/Province</label>
-		                            <input type="text" class="form-control" id="stateProvince" placeholder="State/Province">
+		                        	<%= label_tag :state, "State" %>
+  									<%= text_field_tag :state, '', class: 'form-control', placeholder: 'ex. New York', required: true  %>
 		                        </div>
 		                    </div>
 		                </div>
-		                <div class="row">
-		                    <div class="col-md-6">
-		                        <div class="form-group">
-		                            <label for="company">Company</label>
-		                            <input type="text" class="form-control" id="company" placeholder="Company">
-		                        </div>
-		                    </div>
-		                    <div class="col-md-6">
-		                        <div class="form-group">
-		                        	<label for="fax">Fax</label>
-		                        	<input type="text" class="form-control" id="fax" placeHolder="Fax">
-		                        </div>
-		                    </div>
-		                </div>
-	                </form>
-	                <br>
-	    			<%= link_to 'CHECKOUT', '#', class: 'btn btn-warning btn-lg btn-block' %>
-	    			<%= link_to 'Continue shopping', store_path, class: 'btn btn-primary btn-lg btn-block' %>
+		                <br>
+		                <%= submit_tag 'CHECKOUT', class: 'btn-warning btn-lg btn-block' %>
+		    			<%= link_to 'Continue shopping', store_path, class: 'btn btn-primary btn-lg btn-block' %>
+	                <% end %>
+	               
 	    		</div>
 	    	</div>
 	    </div>
