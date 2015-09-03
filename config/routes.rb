@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :orders
   get 'transactions/index'
 
   get 'transactions/new'
@@ -28,8 +29,9 @@ Rails.application.routes.draw do
   get 'checkout' => 'sessions#checkout'
   get 'checkout2' => 'sessions#checkout2'
 
-  post 'payment' => 'transactions#new'
+  post 'payment2' => 'transactions#new'
 
+  post 'payment' => 'orders#new'
 
 
 end

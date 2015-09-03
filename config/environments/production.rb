@@ -76,4 +76,16 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+    config.after_initialize do
+      ActiveMerchant::Billing::Base.mode = :production  # :production when you will use a real Pro Account
+      paypal_credentials = {
+        login: "clvillarealiv-facilitator_api1.gmail.com",
+        password: "WYJLNDJ2RA277CTS",
+        signature: "AvcPG1.694xCJLdbetCjcTNqs3tmAwyDvxWHuQOlqutBV81LD-lBy3To"
+        
+      }
+      ::CC_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(paypal_credentials)
+      ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_credentials)
+  end
 end

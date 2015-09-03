@@ -46,9 +46,8 @@ class SessionsController < ApplicationController
 		end
 
 		@shipping_fee = 6.99
-		@grand_total = @subtotal + @shipping_fee # + some value ex. Shipping cost
-		session["cart"]["grand_total"] = @grand_total.to_f
-
+		@grand_total = (@subtotal + @shipping_fee).to_f # + some value ex. Shipping cost
+		session["cart"]["grand_total"] = @grand_total
 	end
 
 end

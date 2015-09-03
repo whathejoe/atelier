@@ -1,0 +1,35 @@
+<%= form_for(@order) do |f| %>
+  <% f.error_messages %>
+
+  <div class="field">
+    <%= f.label :new %><br>
+    <%= f.text_field :new %>
+  </div>
+  <div class="field">
+    <%= f.label :cart_id %><br>
+    <%= f.number_field :cart_id %>
+  </div>
+  <div class="field">
+    <%= f.label :ip_address %><br>
+    <%= f.text_field :ip_address %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :card_type %><br>
+    <%= f.text_field :card_type %>
+  </div>
+  <div class="field">
+    <%= f.label :card_expires_on %><br>
+    <%= f.date_select :card_expires_on %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

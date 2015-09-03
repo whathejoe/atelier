@@ -1,0 +1,52 @@
+
+<div class="container">
+	<h1>Payment Processing</h1>
+	<hr>
+	<div class="row">
+		<div class="col-md-3">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<p><strong><%= "#{@client["first_name"]} #{@client["last_name"]}" %></strong><br></p>
+					<p><%= simple_format(@client["address"]) %></p>
+          <hr>
+          <p>$ <%= @grand_total %> </p>
+					<!-- @client = params -- put in controller -->
+				</div>
+				
+			</div>
+		</div>
+
+		<!-- Payment -->
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading"><strong>Choose payment method</strong></div>
+            <div class="panel-body">
+              <!-- Tabs -->           
+              <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#ccMethod">Credit Card</a></li>
+                    <li><a data-toggle="tab" href="#ppMethod">Paypal</a></li>
+                    <li><a data-toggle="tab" href="#gMethod">Google Pay</a></li>
+              </ul>
+              <!-- Tab Content -->
+              <div class="tab-content">
+                <br>
+                <!-- Credit card -->
+                <%= render 'credit_card_form' %>
+                <!-- Paypal -->
+                <div id="ppMethod" class="tab-pane fade">
+                    <p>Paypal payment processing</p>
+                </div>
+
+                <!-- Google Pay -->
+                <div id="gMethod" class="tab-pane fade">
+                    <p>Google Pay payment processing</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+		
+	</div>
+	
+</div>

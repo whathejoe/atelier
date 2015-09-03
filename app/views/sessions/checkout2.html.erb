@@ -1,79 +1,105 @@
 
-<div id="checkOut" class="container">
-	<h1>Checkout</h1>
+<div class="container">
+	<h1>Payment Processing</h1>
 	<hr>
-	
-	
-	<div class="col-md-8">
-		<div class="panel panel-default">
-        	<div class="panel-heading"><strong>1 BILLING ADDRESS</strong></div>
+	<div class="row">
+		<div class="col-md-3">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<p><strong><%= @client["first_name"] %> <%= @client["last_name"]%></strong><br></p>
+					<p><%= simple_format(@client["address"]) %></p>
+					<!-- @client = params -- put in controller -->
+				</div>
+				
+			</div>
+		</div>
+
+		<!-- Payment -->
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading"><strong>Choose payment method</strong></div>
             <div class="panel-body">
-                <form>
-	                <div class="row">
-	                  	<div class="col-md-6">
-	                  	  	<div class="form-group">
-	                  	  	    <label for="firstName">First Name</label>
-	                  	  	    <input type="text" class="form-control" id="firstName" placeholder="First Name">
-	                  	  	</div>
-	                  	</div>
-	                  	<div class="col-md-6">
-	                  	  	<div class="form-group">
-	                  	  	    <label for="lastName">Last Name</label>
-	                  	  	    <input type="text" class="form-control" id="lastName" placeholder="Last Name">
-	                  	  	</div>
-	                  	</div>
-	                </div>
-	                <div class="row">
-	                  	<div class="col-md-6">
-	                  	    <div class="form-group">
-	                  	    	<label for="email">Email</label>
-	                  	    	<input type="email" class="form-control" id="email" placeholder="Email">
-	                  	    </div>
-	                  	</div>
-	                  	<div class="col-md-6">
-	                  	    <div class="form-group">
-	                  	    	<label for="telephone">Telephone</label>
-	                  	    	<input type="tel" class="form-control" id="telephone" placeHolder="Phone Number">
-	                  	    </div>
-	                  	</div>
-	                </div>
-	                <div class="form-group">
-	                  	<label for="address">Address</label>
-	                  	<textarea class="form-control" rows="3" id="address"></textarea>
-	                </div>
+              <!-- Tabs -->           
+              <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#ccMethod">Credit Card</a></li>
+                    <li><a data-toggle="tab" href="#ppMethod">Paypal</a></li>
+                    <li><a data-toggle="tab" href="#gMethod">Google Pay</a></li>
+              </ul>
+              <!-- Tab Content -->
+              <div class="tab-content">
+                <br>
+                <!-- Credit Card -->
+                <div id="ccMethod" class="tab-pane fade in active">
+                    <form>
+                      	<div class="form-group">
+                        	<label for="cardHolder">Credit card holder</label>
+                        	<input type="text" class="form-control" id="cardHolder">
+                     	</div>
+                     	<div class="form-group">
+                     	   	<label for="cardNumber">Credit card number</label>
+                      	  	<input type="text" class="form-control" id="cardNumber">
+                      	</div>
+                      	<div class="form-group">
+                        	<label for="cardType">Type</label>
+                        	<select class="form-control" id="cardType">
+                          		<option>VISA</option>
+                          		<option>Master</option>
+                          		<option>American Express</option>
+                        	</select>
+                     	</div>
+                      	<div class="form-group">
+                        	<label for="cvv">CVV</label>
+                        	<input type="text" class="form-control" id="cvv">
+                      	</div>
+                      	<div class="form-group">
+                        	<label for="cvv">Expiry date</label>
+                        	<div class="row">
+                          		<div class="col-md-7">
+                            	<select class="form-control">
+                              		<option>January</option>
+                              		<option>February</option>
+                              		<option>March</option>
+                              		<option>April</option>
+                              		<option>May</option>
+                              		<option>June</option>
+                              		<option>July</option>
+                              		<option>August</option>
+                              		<option>September</option>
+                              		<option>October</option>
+                              		<option>November</option>
+                              		<option>December</option>
+                            	</select>
+                          		</div>
+                          		<div class="col-md-5">
+                            		<select class="form-control">
+                              			<option>2015</option>
+                              			<option>2016</option>
+                              			<option>2017</option>
+                              			<option>2018</option>
+                              			<option>2019</option>
+                              			<option>2020</option>
+                              			<option>2021</option>
+                            		</select>
+                         		</div>
+                        	</div>
+                      	</div>
+                    </form>
+                </div>
+                <!-- Paypal -->
+                <div id="ppMethod" class="tab-pane fade">
+                    <p>Paypal payment processing</p>
+                </div>
 
-	                <div class="row">
-	                    <div class="col-md-6">
-	                        <div class="form-group">
-	                            <label for="postalCode">Zip/Postal Code</label>
-	                            <input type="text" class="form-control" id="postalCode" placeholder="ex. 11342">
-	                        </div>
-	                    </div>
-	                    <div class="col-md-6">
-	                        <div class="form-group">
-	                            <label for="stateProvince">State/Province</label>
-	                            <input type="text" class="form-control" id="stateProvince" placeholder="State/Province">
-	                        </div>
-	                    </div>
-	                </div>
-	                <div class="row">
-	                    <div class="col-md-6">
-	                        <div class="form-group">
-	                            <label for="company">Company</label>
-	                            <input type="text" class="form-control" id="company" placeholder="Company">
-	                        </div>
-	                    </div>
-	                    <div class="col-md-6">
-	                        <div class="form-group">
-	                        	<label for="fax">Fax</label>
-	                        	<input type="text" class="form-control" id="fax" placeHolder="Fax">
-	                        </div>
-	                    </div>
-	                </div>
-                </form>
+                <!-- Google Pay -->
+                <div id="gMethod" class="tab-pane fade">
+                    <p>Google Pay payment processing</p>
+                </div>
+
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-
-      
-</div>
+		
+	</div>
+	
+</div>>
