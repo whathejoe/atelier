@@ -3,14 +3,10 @@
 	<h1>Payment Processing</h1>
 	<hr>
 
-  <% if @order.express_token.blank? %>
-
 	<div class="row">
 		<div class="col-md-3">
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<p><strong><%= "#{@client["first_name"]} #{@client["last_name"]}" %></strong><br></p>
-					<p><%= simple_format(@client["address"]) %></p>
           <hr>
           <div class="row">
             <div class="col-md-6">
@@ -19,25 +15,81 @@
             <div class="col-md-6">
               <p class="text-right"><strong>$ <%= @grand_total %></strong></p>
             </div>
-          </div>				
+          </div>
+          <hr>			
 				</div>
 			</div>
 		</div>
-		<!-- Payment -->
+
+
+    <%= form_for @order do |f| %>
+    <% if @order.express_token.blank? %>
+
+		<!-- Credit Card -->
     <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading"><strong>Checkout using credit card</strong></div>
         <div class="panel-body">
-          <%= render 'credit_card_form' %>
+          
+            <% if @order.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+                <ul>
+                  <% @order.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+              <div class="form-group">
+                <%= f.label :first_name %>
+                <%= f.text_field :first_name, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.label :last_name %>
+                <%= f.text_field :last_name, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.label :card_type %><br>
+                <%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]], class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.label :card_number %>
+                <%= f.text_field :card_number, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.label :card_verification, "Card Verification Value (CVV)" %>
+                <%= f.text_field :card_verification, class: 'form-control' %>
+              </div>
+              
+              <div class="form-group">
+                <%= f.label :card_expires_on %><br />
+                <%= f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
+              </div>
+              <%= f.submit 'Confirm Order', class: 'btn btn-warning btn-lg btn-block' %>
         </div>
       </div>
     </div>
-	</div>
 
-  <% else %>
+    <% else %>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading"><strong>Please confirm your purchase</strong></div>
+        <div class="panel-body">
+        <p>Payment will be completed using your Paypal funds.</p>
+        <%= f.hidden_field :express_token %>
+        <%= f.hidden_field :express_payer_id %>
+        <%= f.submit 'Confirm Order', class: 'btn btn-warning btn-lg btn-block' %>
+        </div>
+      </div>
+    </div>
+    
+    <% end %>
+    <% end %>
+	</div> 
+</div>
 
-  <% render 'paypal_form' %>
 
-  <% end %>
 	
 </div>
