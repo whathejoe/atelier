@@ -1,13 +1,6 @@
 Rails.application.routes.draw do
   
   resources :orders, :new => { :express => :get }
-  get 'transactions/index'
-
-  get 'transactions/new'
-
-  get 'transactions/create'
-
-  get 'transactions/success'
 
   root 'products#home'
 
@@ -30,8 +23,8 @@ Rails.application.routes.draw do
   get 'checkout2' => 'sessions#checkout2'
 
 
-  post 'payment' => 'orders#new'
-  get 'express_payment' => 'orders#express'
-
+  post '/payment' => 'orders#new'
+  get '/payment' => 'orders#new' 
+  get '/express_payment' => 'orders#express'
 
 end

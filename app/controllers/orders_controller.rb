@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:update, :destroy]
 
   # GET /orders
   # GET /orders.json
@@ -7,24 +7,19 @@ class OrdersController < ApplicationController
     @orders = Order.all
   end
 
-  # GET /orders/1
-  # GET /orders/1.json
-  def show
-  end
-
   # GET /orders/new
   def new
+    @grand_total = session["cart"]["grand_total"]
+    @client = params
+
     if !params[:token].blank?
       @order = Order.new(:express_token => params[:token] )
     else
       @order = Order.new()
     end
-    @grand_total = session["cart"]["grand_total"]
-    @client = params
-    unless params["commit"] == "CHECKOUT"
-      
+    
+    unless params["commit"] == "Confirm order"
       @name = "#{@client["first_name"]} #{@client["last_name"]}"
-      
       @address = @client["address"]
       @city = @client["city"]
       @state = @client["state"]
@@ -34,20 +29,14 @@ class OrdersController < ApplicationController
   end
 
   def express
-    response = EXPRESS_GATEWAY.setup_purchase((session["cart"]["grand_total"]*100),
+    @price = (session["cart"]["grand_total"]*100)
+    response = EXPRESS_GATEWAY.setup_purchase( @price,
       :ip                => request.remote_ip,
-      :return_url        => express_payment_path,
-      :cancel_return_url => store_path
+      :return_url        => payment_url,
+      :cancel_return_url => cart_url
     )
-    puts session["cart"]["grand_total"]
-    puts response.details
-    puts response.token
-    puts session["cart"]["grand_total"]*100
+    puts @price
     redirect_to EXPRESS_GATEWAY.redirect_url_for(response.token)
-  end
-
-  # GET /orders/1/edit
-  def edit
   end
 
   # POST /orders

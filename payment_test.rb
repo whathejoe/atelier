@@ -11,8 +11,8 @@ gateway = ActiveMerchant::Billing::PaypalGateway.new(
 
 credit_card = ActiveMerchant::Billing::CreditCard.new(
   :type               => "visa",
-  :number             => "4024007148673576",
-  :verification_value => "123",
+  :number             => "4032032185996920",
+  :verification_value => "321",
   :month              => 1,
   :year               => Time.now.year+1,
   :first_name         => "Ryan",

@@ -3,8 +3,7 @@
 	<h1>Payment Processing</h1>
 	<hr>
 
-
-
+  <% if @order.express_token.blank? %>
 
 	<div class="row">
 		<div class="col-md-3">
@@ -25,15 +24,20 @@
 			</div>
 		</div>
 		<!-- Payment -->
-        <div class="col-md-4">
-          <div class="panel panel-default">
-            <div class="panel-heading"><strong>Checkout using credit card</strong></div>
-            <div class="panel-body">
-              <%= render 'credit_card_form' %>
-            </div>
-          </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading"><strong>Checkout using credit card</strong></div>
+        <div class="panel-body">
+          <%= render 'credit_card_form' %>
         </div>
-		
+      </div>
+    </div>
 	</div>
+
+  <% else %>
+
+  <% render 'paypal_form' %>
+
+  <% end %>
 	
 </div>
