@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :orders
+  resources :orders, :new => { :express => :get }
   get 'transactions/index'
 
   get 'transactions/new'
@@ -29,9 +29,9 @@ Rails.application.routes.draw do
   get 'checkout' => 'sessions#checkout'
   get 'checkout2' => 'sessions#checkout2'
 
-  post 'payment2' => 'transactions#new'
 
   post 'payment' => 'orders#new'
+  get 'express_payment' => 'orders#express'
 
 
 end

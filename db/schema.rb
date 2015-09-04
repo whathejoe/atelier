@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902230057) do
+ActiveRecord::Schema.define(version: 20150903235529) do
 
   create_table "order_transactions", force: :cascade do |t|
     t.integer  "order_id"
@@ -33,8 +33,10 @@ ActiveRecord::Schema.define(version: 20150902230057) do
     t.string   "last_name"
     t.string   "card_type"
     t.date     "card_expires_on"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "express_token"
+    t.string   "express_payer_id"
   end
 
   create_table "products", force: :cascade do |t|

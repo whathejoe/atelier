@@ -14,15 +14,36 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @order = Order.new
-    @client = params
-    @name = @client["first_name"] + " " + @client["last_name"]
+    if !params[:token].blank?
+      @order = Order.new(:express_token => params[:token] )
+    else
+      @order = Order.new()
+    end
     @grand_total = session["cart"]["grand_total"]
-    @address = @client["address"]
-    @city = @client["city"]
-    @state = @client["state"]
-    @country = "US"
-    @zip = @client["postal_code"]
+    @client = params
+    unless params["commit"] == "CHECKOUT"
+      
+      @name = "#{@client["first_name"]} #{@client["last_name"]}"
+      
+      @address = @client["address"]
+      @city = @client["city"]
+      @state = @client["state"]
+      @country = "US"
+      @zip = @client["postal_code"]
+    end
+  end
+
+  def express
+    response = EXPRESS_GATEWAY.setup_purchase((session["cart"]["grand_total"]*100),
+      :ip                => request.remote_ip,
+      :return_url        => express_payment_path,
+      :cancel_return_url => store_path
+    )
+    puts session["cart"]["grand_total"]
+    puts response.details
+    puts response.token
+    puts session["cart"]["grand_total"]*100
+    redirect_to EXPRESS_GATEWAY.redirect_url_for(response.token)
   end
 
   # GET /orders/1/edit
@@ -84,6 +105,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:new, :cart_id, :ip_address, :first_name, :last_name, :card_type, :card_expires_on, :card_number, :card_verification)
+      params.require(:order).permit(:new, :cart_id, :ip_address, :first_name, :last_name, :card_type, :card_expires_on, :card_number, :card_verification, :express_token)
     end
 end

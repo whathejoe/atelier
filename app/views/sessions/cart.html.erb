@@ -115,6 +115,9 @@
 		                </div>
 		                <br>
 		                <%= submit_tag 'CHECKOUT', class: 'btn-warning btn-lg btn-block' %>
+		    			<p class="text-center"> - OR - </p>
+		    			<%= link_to image_tag( 'https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png', class: 'btn-block'), express_payment_path %>
+		                <hr>
 		    			<%= link_to 'Continue shopping', store_path, class: 'btn btn-primary btn-lg btn-block' %>
 	                <% end %>
 	               
