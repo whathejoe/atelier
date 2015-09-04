@@ -27,3 +27,9 @@ h1 {
 .price {
 	color: green;
 }
+
+/* Cart */
+
+.table > tbody > tr > td {
+	vertical-align: middle;
+}

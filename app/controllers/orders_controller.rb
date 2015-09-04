@@ -37,6 +37,7 @@ class OrdersController < ApplicationController
     if @order.save
       if @order.purchase
         render :action => "success"
+        session["cart"] = nil
         puts "Purchase complete!"
       else
         render :action => "failure"

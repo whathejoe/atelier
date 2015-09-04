@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 	def new
+		
 	end
 
 	def create
@@ -17,6 +18,25 @@ class SessionsController < ApplicationController
 	  redirect_to '/login' 
 	end
 
+	def cart
+		if session["cart"] ==  nil
+			flash[:message] = "Cart is currently empty."
+			redirect_to store_path		
+		else
+			@items = session["cart"]["products"]
+			@products = Product.all
+
+			@subtotal = 0
+			@items.each do |id, hash|
+				@subtotal += @products.find_by_id(id).price * hash["quantity"].to_f
+			end
+
+			@shipping_fee = 6.99
+			@grand_total = (@subtotal + @shipping_fee).to_f # + some value ex. Shipping cost
+			session["cart"]["grand_total"] = @grand_total
+		end
+	end
+
 	def add_to_cart
 		if params[:qty] == "0" || params[:qty] == ""
 			params[:qty] = 1
@@ -28,26 +48,9 @@ class SessionsController < ApplicationController
 		redirect_to product_path(id: params[:id])
 	end
 
-	def checkout
-		
+	def clear_cart
+		session["cart"] = nil
+		flash[:message] = 'Cart is now empty.'
+		redirect_to store_path
 	end
-
-	def checkout2
-		
-	end
-
-	def cart
-		@items = session["cart"]["products"]
-		@products = Product.all
-
-		@subtotal = 0
-		@items.each do |id, hash|
-			@subtotal += @products.find_by_id(id).price * hash["quantity"].to_f
-		end
-
-		@shipping_fee = 6.99
-		@grand_total = (@subtotal + @shipping_fee).to_f # + some value ex. Shipping cost
-		session["cart"]["grand_total"] = @grand_total
-	end
-
 end
