@@ -25,3 +25,13 @@ Tabletop is a mobile-responsive eCommerce website with a session-based checkout 
   * Product  
   * About  
   * Contact  
+7. Technologies used
+  * HTML
+  * CSS
+  * Twitter Bootstrap
+  * ERB
+  * JSON
+  * Paypal API
+  * SQLite
+  * Ruby
+  * Ruby on Rails
