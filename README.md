@@ -1,5 +1,5 @@
 # TableTop - eCommerce Rails Application
-*Created for Stanford Research Group*
+*Created for (Stanford HCI Group)[http://hci.stanford.edu/]*
 
 ### Purpose
 To test collaboration system while completing a project.
